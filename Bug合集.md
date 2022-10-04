@@ -10,3 +10,12 @@ git rm -rf --cached xxx
 git察觉不到更新就清缓存
 
 **nuxt3启动BUG**[nuxt] [request error] [unhandled] [500] Cannot read properties of undefined (reading 'modules')
+
+Nginx 端口被占用问题。
+
+```
+输入命令：netstat -ano，列出所有端口的情况。
+查看被占用端口对应的PID，输入命令：netstat -aon|findstr "8080"，回车，记下最后一位数字，即PID,这里是2668。
+继续输入tasklist|findstr "2668"，回车，查看是哪个进程或者程序占用了2668端口，结果是：TIM.exe
+```
+
