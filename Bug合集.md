@@ -19,3 +19,11 @@ Nginx 端口被占用问题。
 继续输入tasklist|findstr "2668"，回车，查看是哪个进程或者程序占用了2668端口，结果是：TIM.exe
 ```
 
+Original error: Cannot use import statement outside a module
+
+```javascript
+// package.json中配置
+
+"type": "module"
+```
+
