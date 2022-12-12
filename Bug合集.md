@@ -27,3 +27,12 @@ Original error: Cannot use import statement outside a module
 "type": "module"
 ```
 
+vue3 源码无法 commit
+
+``` javascript
+git commit -m "chore: add s" --no-verify   // 关闭验证
+
+
+
+```
+
