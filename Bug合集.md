@@ -33,3 +33,9 @@ vue3 源码无法 commit
 git commit -m "chore: add s" --no-verify   // 关闭验证
 ```
 
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of me
+
+````js
+全局安装increase-memory-limit 命令行cmd ,dos窗口运行：cnpm install -g increase-memory-limit， 进入项目文件夹，运行：increase-memory-limit 可解决问题。 // 在 Node 中通过 JavaScript 使用内存时只能使用部分内存（64位系统下约为1.4 GB，32位系统下约为0.7 GB），这就是我们编译项目时为什么会出现内存泄露了，因为前端项目如果非常的庞大，webpack 编译时就会占用很多的系统资源，如果超出了V8对 Node 默认的内存限制大小就会出现刚刚错误了，那怎么解决呢？V8依然提供了选项让我们使用更多的内存。Node 在启动时可以传递 --max-old-space-size 或 --max-new-space-size 来调整内存大小的使用限制
+````
+
