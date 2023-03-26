@@ -39,3 +39,20 @@ FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaS
 全局安装increase-memory-limit 命令行cmd ,dos窗口运行：cnpm install -g increase-memory-limit， 进入项目文件夹，运行：increase-memory-limit 可解决问题。 // 在 Node 中通过 JavaScript 使用内存时只能使用部分内存（64位系统下约为1.4 GB，32位系统下约为0.7 GB），这就是我们编译项目时为什么会出现内存泄露了，因为前端项目如果非常的庞大，webpack 编译时就会占用很多的系统资源，如果超出了V8对 Node 默认的内存限制大小就会出现刚刚错误了，那怎么解决呢？V8依然提供了选项让我们使用更多的内存。Node 在启动时可以传递 --max-old-space-size 或 --max-new-space-size 来调整内存大小的使用限制
 ````
 
+````js
+export default buildOptions;
+^^^^^^
+SyntaxError: Unexpected token 'export'
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1032:15)
+    at Module._compile (node:internal/modules/cjs/loader:1067:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1157:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:168:29)
+    at ModuleJob.run (node:internal/modules/esm/module_job:197:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+````
+
+`export` is ES6 Module syntax. Have you added the property `"type":"module"` to your `package.json`?
